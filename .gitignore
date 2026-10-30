@@ -1,0 +1,12 @@
+# Plugin MediaPipe (181 MB): se descarga aparte, ver README
+touchdesigner/mediapipe/*
+!touchdesigner/mediapipe/release/
+touchdesigner/mediapipe/release/*
+# ...pero sí guardamos nuestro proyecto de TouchDesigner
+!touchdesigner/mediapipe/release/manos_particulas.toe
+
+# Copias automáticas de TouchDesigner y basura de macOS
+*.[0-9]*.toe
+Backup/
+.DS_Store
+__pycache__/
