@@ -63,17 +63,10 @@ curl -L -o hand_landmarker.task https://storage.googleapis.com/mediapipe-models/
 Arrancar: **cierra TouchDesigner** (si no, también manda datos al puerto 12000),
 ejecuta `python/run_manos.sh` y después el sketch de Processing.
 
-## Versión 3: Pizarrón con las manos  (etiqueta `v3-pizarron`)
+## Pizarrón → repositorio propio
 
-Sketch `processing/pizarron/pizarron.pde`. Usa el mismo detector de manos
-(`python/run_manos.sh` o TouchDesigner) — solo puede correr un sketch a la vez (puerto 12000).
-
-- **Pinza** (pulgar + índice) = dibujar · **mano abierta** = mover el cursor
-- **Barra de arriba**: deja el dedo quieto ~1 s sobre un botón (se llena un anillo)
-  - colores, 3 grosores
-  - **Goma**: convierte el lápiz en borrador (cursor rojo); haz pinza para borrar. Elige un color para volver a dibujar
-  - **Deshacer** último trazo · **Borrar** todo · **Guardar** PNG en la carpeta del sketch
-- Teclas: `z` deshacer, `c` borrar, `s` guardar, `m` espejo
+El pizarrón (antes versión 3 aquí, etiqueta `v3-pizarron`) ahora es un proyecto aparte:
+**[pizarron-manos](https://github.com/matthewconstante-ship-it/pizarron-manos)**.
 
 ### Notas aprendidas
 
@@ -81,6 +74,4 @@ Sketch `processing/pizarron/pizarron.pde`. Usa el mismo detector de manos
   todo pasa por OSC.
 - El ejemplo de MediaPipe trae dos `hand_tracking`; el bueno es `/project1/hand_tracking`
   (el de dentro de `MediaPipe` no está conectado). `manos_bridge.py` elige el conectado.
-- En este Mac una capa `PGraphics` P2D aparte no se muestra en pantalla: el pizarrón
-  redibuja todos los trazos cada fotograma.
 - TouchDesigner lee los scripts como ASCII: usa `encoding='utf-8'` al abrirlos.
