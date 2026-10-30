@@ -37,6 +37,32 @@ paso 4 (panel de control y efectos en TD).
 
 Teclas en Processing: `m` espejo, `d` ver manos, `c` borrar.
 
+## Versión 2: solo Processing + ayudante Python  (sin TouchDesigner)
+
+```
+Cámara ─▶ python/manos.py (MediaPipe): detecta las manos
+             │  OSC 127.0.0.1:12000  (mismos mensajes que la versión 1)
+             ▼
+          Processing: el mismo sketch processing/manos_particulas
+```
+
+| Archivo | Qué es |
+|---|---|
+| `python/manos.py` | Detector de manos con MediaPipe → OSC (con ventana de vista previa) |
+| `python/run_manos.sh` | Lanzador (`./run_manos.sh`, opciones `--no-preview`, `--camera N`) |
+| `python/requirements.txt` | Paquetes de Python |
+| `python/.venv/`, `python/hand_landmarker.task` | Entorno y modelo — no están en git, se recrean así ↓ |
+
+Instalación (solo la primera vez, o si se borra `.venv`):
+```bash
+cd "/Users/matthew/Desktop/pruebas claude/manos_particulas/python"
+python3.13 -m venv .venv && .venv/bin/pip install -r requirements.txt
+curl -L -o hand_landmarker.task https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/latest/hand_landmarker.task
+```
+
+Arrancar: **cierra TouchDesigner** (si no, también manda datos al puerto 12000),
+ejecuta `python/run_manos.sh` y después el sketch de Processing.
+
 ### Notas aprendidas
 
 - En Mac Apple Silicon la librería **Syphon para Processing no funciona** (solo Intel). Por eso

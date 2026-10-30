@@ -10,3 +10,7 @@ touchdesigner/mediapipe/release/*
 Backup/
 .DS_Store
 __pycache__/
+
+# Python: entorno virtual y modelo (se reinstalan, ver README)
+python/.venv/
+python/hand_landmarker.task
