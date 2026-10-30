@@ -14,3 +14,6 @@ __pycache__/
 # Python: entorno virtual y modelo (se reinstalan, ver README)
 python/.venv/
 python/hand_landmarker.task
+
+# Dibujos guardados desde el pizarrón
+processing/pizarron/pizarron-*.png
