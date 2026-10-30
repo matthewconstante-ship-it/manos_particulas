@@ -15,3 +15,6 @@ __pycache__/
 python/.venv/
 python/hand_landmarker.task
 
+
+# Dibujos guardados desde el pizarrón (proyecto aparte)
+*.png
